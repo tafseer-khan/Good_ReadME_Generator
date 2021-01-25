@@ -1,18 +1,20 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
 const util = require('util')
+const generateMarkdown = require('./utils/generateMarkdown.js');
+const writeFileAsync = util.promisify(writeToFile);
 
 // array of questions for user
 const questions = [
     {
         type: 'input',
         message: "What is your title for your Project?",
-        name:'title'
+        name: 'title'
     },
     {
-      type: 'input',
-      message: "What are your instructions for installation?",
-      name:'install'  
+        type: 'input',
+        message: "What are your instructions for installation?",
+        name: 'install'
     },
     {
         type: 'input',
@@ -32,7 +34,7 @@ const questions = [
     {
         type: 'list',
         message: "Which liscense would you like to use?",
-        choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+        choices: ['BSD','MIT','GPL'],
         name: 'license'
     },
     {
@@ -45,24 +47,30 @@ const questions = [
         message: 'What is your email address?',
         name: 'email'
     }
-    
+
 
 ];
 
 // function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err =>{
-        if (err){
+    fs.writeFile(fileName, data, err => {
+        if (err) {
             return console.log(err);
         }
-        else{
+        else {
             console.log("README.md has been generated")
         }
     });
 }
 
 // function to initialize program
-function init() {
+async function init() {
+    const answers = await inquirer.prompt(questions);
+    const all = generateMarkdown(answers);
+    console.log(answers);
+
+    // Write markdown to file
+    await writeToFile('README.md', all);
 
 }
 
