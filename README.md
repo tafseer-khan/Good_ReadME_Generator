@@ -20,6 +20,7 @@ Once you have installed inquirer you can run the program. Run the program by typ
 
 ## Screenshot
 ![projectScreenshot](https://github.com/tafseer-khan/Good_ReadME_Generator/blob/main/Assets/README%20Screenshot.png)
+[VideoInstructions](https://github.com/tafseer-khan/Good_ReadME_Generator/blob/main/Assets/VideoInstructions.mp4)
 
 ## Contribution
 Please make sure to contact me for any contribution requests, my contact information is below. 
