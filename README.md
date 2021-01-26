@@ -19,7 +19,7 @@ In the command line please type ' npm install inquirer ' and then hit enter.
 Once you have installed inquirer you can run the program. Run the program by typing ' node index.js ' and hit enter. You will then be given a series of prompts, once you clear each prompt your readme will be generated.
 
 ## Screenshot
-<img src="C:\Users\Taffy\OneDrive\Documents\School\UT Austin Coding Boot Camp\Homework\Homework-7\Good_ReadME_Generator\Assets\README Screenshot.png">
+![projectScreenshot](https://github.com/tafseer-khan/Good_ReadME_Generator/blob/main/Assets/README%20Screenshot.png)
 
 ## Contribution
 Please make sure to contact me for any contribution requests, my contact information is below. 

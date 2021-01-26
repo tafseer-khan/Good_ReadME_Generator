@@ -21,7 +21,7 @@ ${data.install}
 ${data.usage}
 
 ## Screenshot
-<img src="${data.screenshot}>
+![projectScreenshot](${data.screenshot})
 
 ## Contribution
 ${data.guidelines}
