@@ -1,15 +1,22 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
-const util = require('util')
 const generateMarkdown = require('./utils/generateMarkdown.js');
-const writeFileAsync = util.promisify(writeToFile);
+const util = require('util');
+
+const writeToFile = util.promisify(fs.writeFile);
+
 
 // array of questions for user
-const questions = [
-    {
+const promptUser = () =>
+    inquirer.prompt([{
         type: 'input',
         message: "What is your title for your Project?",
         name: 'title'
+    },
+    {
+        type: 'input',
+        message: 'Please describe your project',
+        name: 'description'
     },
     {
         type: 'input',
@@ -46,33 +53,16 @@ const questions = [
         type: 'input',
         message: 'What is your email address?',
         name: 'email'
-    }
-
-
-];
-
-// function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
-        if (err) {
-            return console.log(err);
-        }
-        else {
-            console.log("README.md has been generated")
-        }
-    });
-}
+        
+    },
+    {
+        type: 'input',
+        message: "Please paste path to your project's screenshot.",
+        name: 'screenshot'
+    }])
 
 // function to initialize program
-async function init() {
-    const answers = await inquirer.prompt(questions);
-    const all = generateMarkdown(answers);
-    console.log(answers);
-
-    // Write markdown to file
-    await writeToFile('README.md', all);
-
-}
-
-// function call to initialize program
-init();
+promptUser()
+    .then((answers) => writeToFile('exampleREADME.md', generateMarkdown(answers)))
+    .then(() => console.log('Successfully wrote to README.md'))
+    .catch((err) => console.error(err));

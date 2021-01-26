@@ -9,7 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.5.2"
+    "inquirer": "^6.5.2",
+    "inquirer-directory": "^2.2.0",
+    "inquirer-file-path": "^1.0.1",
+    "inquirer-file-tree-selection-prompt": "^1.0.7",
+    "inquirer-select-directory": "^1.2.0"
   },
   "repository": {
     "type": "git",
