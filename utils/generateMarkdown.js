@@ -2,7 +2,8 @@
 
 const generateMarkdown = (data) =>`# ${data.title}
 
-## ${data.description}
+## Description
+${data.description}
 
 ## Table of Contents
 - [Installation](#installation)
