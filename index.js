@@ -63,6 +63,6 @@ const promptUser = () =>
 
 // function to initialize program
 promptUser()
-    .then((answers) => writeToFile('README.md', generateMarkdown(answers)))
+    .then((answers) => writeToFile('1README.md', generateMarkdown(answers)))
     .then(() => console.log('Successfully wrote to README.md'))
     .catch((err) => console.error(err));
