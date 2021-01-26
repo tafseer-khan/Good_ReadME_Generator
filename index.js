@@ -25,7 +25,7 @@ const promptUser = () =>
     },
     {
         type: 'input',
-        messsage: 'What is your usage information?',
+        message: "What is the usage for your program?",
         name: 'usage'
     },
     {
